@@ -1,0 +1,114 @@
+body {
+    background-color: #e6dfce;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #3EB489;
+}
+
+li {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    list-style: none;
+    /*Será que isso serve para tirar tipo os 1 ou a bolinha os desordenados?*/
+}
+
+a {
+    color: #f3f0ea;
+    text-decoration: none;
+    /*serve para tirar aquele azul de link*/
+}
+
+.navbar {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 34px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    /*letra gordinha*/
+    font-family: monospace;
+}
+
+.navMenu {
+    display: flex;
+    /*deixa um do lado do outro*/
+    align-items: center;
+    gap: 60px;
+    /*espaçameto entre eles*/
+}
+
+.navLinks {
+    transition: 0.5s ease;
+    /*serve para mostrar os segundos de transição quando passa o mouse-*/
+}
+
+.navLinks:hover {
+    color: #534b46;
+    /*serve para mostrar o que vai acontecer quando eu passar o mouse (só funciona quando eu coloco ":home*/
+
+}
+
+.hb{
+    display: none; /*não entendi direito, mas isso fez a parte de cima da reireita sumir*/
+    cursor: pointer; /*serve para ficar a maozinha quando passa o mouse*/
+}
+
+.bar{ /*serve para cofigurar os três pauzinhos*/
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    margin: 5px auto;
+    background-color: #f3f0ea;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width:768px){
+    .hb{
+        display: block;
+    }
+    .hb.active .bar:nth-child(2){ /*o traço do meio vai sumir*/
+        opacity: 0;
+
+    }
+
+    .hb.active .bar:nth-child(1){
+      
+        transform: translateY(8px) rotate(45deg);/*o traço de cima vai ficar em diagonau*/
+    }
+
+    .hb.active .bar:nth-child(3){
+       
+        transform: translateY(-8px) rotate(-45deg);/*o traço de baixo tambem vai ficar, mas tem que ser invertido*/
+    }
+    .navMenu{
+        position: fixed;
+        left: -100%; /*vai tudo para a esquerda e vai sumir*/
+        top: 70px;
+        gap:0;
+        border-radius: 0 0 20px 20px;
+        background-color: #3EB489;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        transition: 0.3s; /*ajuda a não ficar muito bruto na tela na hora que clicar*/
+    }
+    .navItens{
+        margin: 16px 0;
+    }
+    .navMenu.active{
+        left: 0;
+        
+    }
+}
